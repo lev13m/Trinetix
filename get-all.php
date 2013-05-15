@@ -1,4 +1,5 @@
 <?php
+ini_set('display_errors', 1);
 include_once 'Configs.php';
 include_once 'Model.php';
 

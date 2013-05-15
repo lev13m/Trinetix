@@ -171,7 +171,11 @@ class Model
 			$data[$node['id']] = new Node($node['id']);
 			$data[$node['id']]->setData($node);
 
-			if ($node['parent_id'] != null) $data[$node['parent_id']]->addChild($data[$node['id']]);
+			if ($node['parent_id'] != null)
+			{
+				if(!isset($data[$node['parent_id']]))$data[$node['parent_id']] = new Node($node['parent_id']);
+				$data[$node['parent_id']]->addChild($data[$node['id']]);
+			}
 		}
 		return $data[$firstNode];
 	}
